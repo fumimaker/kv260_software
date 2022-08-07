@@ -174,53 +174,6 @@ int main(){
     }
 
 
-    status = XV_tpg_Initialize(&tpgInst, TPG_NAME);
-    if (status != XST_SUCCESS) {
-        printf("TPG configuration failed\r\n");
-        exit(1);
-    }
-    XV_tpg_Set_height(&tpgInst, HEIGHT);
-    XV_tpg_Set_width(&tpgInst, WIDTH);
-    if (XV_tpg_Get_height(&tpgInst) == HEIGHT &&
-        XV_tpg_Get_width(&tpgInst) == WIDTH) {
-        printf("[ OK ] ");
-    } else {
-        printf("[ NG ] ");
-    }
-    printf("TPG Height:%u, Width:%u\n", XV_tpg_Get_height(&tpgInst),
-           XV_tpg_Get_width(&tpgInst));
-    XV_tpg_Set_colorFormat(&tpgInst, 0x0);  // RGB
-    XV_tpg_Set_bckgndId(&tpgInst, 0x11);
-    XV_tpg_EnableAutoRestart(&tpgInst);
-
-
-
-
-    status = XCounteraxistream_Initialize(&counterInst, COUNTER_NAME);
-    if (status != XST_SUCCESS) {
-        printf("counter inst failded\n");
-        exit(1);
-    } else {
-        printf("counter inst done\n");
-    }
-    XCounteraxistream_Set_height_V(&counterInst, HEIGHT);
-    XCounteraxistream_Set_width_V(&counterInst, WIDTH);
-    if (XCounteraxistream_Get_height_V(&counterInst) == HEIGHT &&
-        XCounteraxistream_Get_width_V(&counterInst) == WIDTH) {
-        printf("[ OK ] ");
-    } else {
-        printf("[ NG ] ");
-    }
-    printf("CounterAXIStream Height:%u, Width:%u\n",
-           XCounteraxistream_Get_height_V(&counterInst),
-           XCounteraxistream_Get_width_V(&counterInst));
-
-    XCounteraxistream_EnableAutoRestart(&counterInst);
-
-
-
-
-
     printf("Resetting DMA\n");
     reg_set(reg, S2MM_CONTROL_REGISTER, 4);//reset
     dma_s2mm_status(reg);
