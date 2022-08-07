@@ -9,9 +9,18 @@
             #address-cells = <2>;
             #size-cells = <2>;
 
-            axigpio-uio {
+            axidma-uio {
                 compatible = "generic-uio";
                 reg = <0x0 0x00A0000000 0x0 0x10000>;
+                interrupt-parent = <&gic>;
+                interrupts = <0 89 4>;
+            };
+
+            udmabuf0 {
+                compatible  = "ikwzm,u-dma-buf";
+                device-name = "udmabuf0";
+                sync-mode = <1>;
+                size = <0x1000>;
             };
         };
     };
