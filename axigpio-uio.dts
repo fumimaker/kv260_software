@@ -1,7 +1,7 @@
 /dts-v1/;/plugin/;
 / {
     fragment@0 {
-        target-path = "/amba_pl@0";
+        target-path = "/axi";
         #address-cells = <2>;
         #size-cells = <2>;
         __overlay__ {
@@ -11,41 +11,6 @@
             axigpio-uio {
                 compatible = "generic-uio";
                 reg = <0x0 0x00A0000000 0x0 0x10000>;
-            };
-
-            mipicsi-uio {
-                compatible = "generic-uio";
-                reg = <0x0 0x00A0010000 0x0 0x10000>;
-            };
-
-            axidma-uio {
-                compatible = "generic-uio";
-                reg = <0x0 0x00A0020000 0x0 0x10000>;
-                interrupt-parent = <&gic>;
-                interrupts = <0 89 4>;
-            };
-
-            demosaic-uio {
-                compatible = "generic-uio";
-                reg = <0x0 0x00A0030000 0x0 0x10000>;
-            };
-
-            gamma-uio {
-                compatible = "generic-uio";
-                reg = <0x0 0x00A0040000 0x0 0x10000>;
-            };
-
-            udmabuf0 {
-                compatible  = "ikwzm,u-dma-buf";
-                device-name = "udmabuf0";
-                size = <1000000>;
-            };
-
-            udmabuf1 {
-                compatible  = "ikwzm,u-dma-buf";
-                device-name = "udmabuf1";
-                size = <0xCDFE600>;
-                dma-coherent;
             };
         };
     };
