@@ -4,7 +4,7 @@
         target-path = "/axi";
         __overlay__ {
             fclk0 {
-                compatible    = "ikwzm,fclkcfg";
+                compatible    = "ikwzm,fclkcfg-0.10.a";
                 clocks        = <&zynqmp_clk 71>;
                 insert-rate   = "100000000";
                 insert-enable = <1>;

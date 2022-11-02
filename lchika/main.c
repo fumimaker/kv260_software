@@ -55,6 +55,7 @@ int main(int argc, char **argv)
             counter = 0;
         }
         address[0] = counter;
+        printf("%d\n", address[0]);
         usleep(1*1000*500); //500ms
         counter++;
         // address[0] = 0x00;
